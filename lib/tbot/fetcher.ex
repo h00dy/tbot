@@ -1,18 +1,19 @@
 defmodule Tbot.Fetcher do
   use Timex
+  alias Tbot.Equity
   alias Tbot.Fetcher.{AVClient, Candle, Data}
 
   @doc """
   Fetches Intraday data for a single equity
   """
-  @spec fetch_time_series_data(String.t()) :: Data.t()
-  def fetch_time_series_data(symbol, interval \\ 60) do
-    data =
-      AVClient.get_intraday(symbol, interval)
+  @spec fetch_time_series_data(Equity.t()) :: Data.t()
+  def fetch_time_series_data(equity, interval \\ 60) do
+    candles =
+      AVClient.get_intraday(equity.name, interval)
       |> Map.get("Time Series (#{interval}min)")
       |> serialize_time_series_data()
 
-    %Data{name: symbol, data: data}
+    %Data{equity: equity, candles: candles}
   end
 
   defp serialize_time_series_data(time_series_data) do

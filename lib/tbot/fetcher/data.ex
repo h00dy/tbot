@@ -1,12 +1,14 @@
 defmodule Tbot.Fetcher.Data do
-  @type t :: %__MODULE__{name: String.t(), data: list}
+  alias Tbot.Equity
 
-  defstruct [:name, :data]
+  @type t :: %__MODULE__{equity: Equity.t(), candles: nonempty_list(Tbot.Fetcher.Candle.t())}
+
+  defstruct [:equity, :candles]
 end
 
 defmodule Tbot.Fetcher.Candle do
   @type t :: %__MODULE__{
-          date: DateTime,
+          date: DateTime.t(),
           open: float,
           high: float,
           close: float,

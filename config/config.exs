@@ -7,6 +7,10 @@
 # General application configuration
 use Mix.Config
 
+config :tbot,
+  data_fetcher_module: Tbot.Fetcher,
+  capital: 5000
+
 # Configures the endpoint
 config :tbot, TbotWeb.Endpoint,
   url: [host: "localhost"],

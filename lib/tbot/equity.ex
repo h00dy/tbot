@@ -1,4 +1,13 @@
 defmodule Tbot.Equity do
+  @moduledoc """
+  Holds information about equity
+  """
 
-  defstruct [:name, :status, :size]
+  @type t() :: %__MODULE__{
+    name: String.t,
+    atr: float
+
+  }
+
+  defstruct [:name, :atr]
 end

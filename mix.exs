@@ -19,7 +19,7 @@ defmodule Tbot.MixProject do
   def application do
     [
       mod: {Tbot.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :timex]
     ]
   end
 
@@ -40,7 +40,9 @@ defmodule Tbot.MixProject do
       {:jason, "~> 1.0"},
       {:tesla, "~> 1.3.0"},
       {:timex, "~> 3.5"},
-      {:plug_cowboy, "~> 2.0"}
+      {:plug_cowboy, "~> 2.0"},
+      { :elixir_uuid, "~> 1.2" },
+      {:dialyxir, "~> 1.0.0-rc.7", only: [:dev], runtime: false}
     ]
   end
 end
