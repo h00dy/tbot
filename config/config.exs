@@ -7,16 +7,13 @@
 # General application configuration
 use Mix.Config
 
-config :tbot,
-  data_fetcher_module: Tbot.Fetcher,
-  capital: 5000
-
 # Configures the endpoint
 config :tbot, TbotWeb.Endpoint,
   url: [host: "localhost"],
-  secret_key_base: "0+qcfEid9xQRwRgpfEMpp748kf0MBxi1nOrb1d3sF0bFhmGjO9YcfaCCg99GHPO3",
-  render_errors: [view: TbotWeb.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: Tbot.PubSub, adapter: Phoenix.PubSub.PG2]
+  secret_key_base: "h1fb/6WcV5FJcER1l1kAGdqc2JNGMhDY33eQMfs6NZm5X4C1zdAxplg6hZlvJ3nA",
+  render_errors: [view: TbotWeb.ErrorView, accepts: ~w(html json), layout: false],
+  pubsub_server: Tbot.PubSub,
+  live_view: [signing_salt: "Xw/yiWb1"]
 
 # Configures Elixir's Logger
 config :logger, :console,

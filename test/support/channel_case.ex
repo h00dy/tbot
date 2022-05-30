@@ -20,7 +20,8 @@ defmodule TbotWeb.ChannelCase do
   using do
     quote do
       # Import conveniences for testing with channels
-      use Phoenix.ChannelTest
+      import Phoenix.ChannelTest
+      import TbotWeb.ChannelCase
 
       # The default endpoint for testing
       @endpoint TbotWeb.Endpoint
